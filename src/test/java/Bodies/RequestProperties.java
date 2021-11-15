@@ -15,8 +15,18 @@ public class RequestProperties {
 
     public RequestProperties(){
         this.appThemeState = 0;
-        //this.clientID = "Pt10sNWXTjSyM-ArRcORYQ";
-        this.clientID = "6";
+        this.clientID = "Pt10sNWXTjSyM-ArRcORYQ";
+        this.clientVersion = "12.1.0";
+        this.clientVersionCode = 1200100;
+        this.isKidsEnabled = false;
+        this.language = 2;
+        this.lat = 35.67567567567568;
+        this.lon = 51.325979115079555;
+    }
+
+    public RequestProperties(String clientID){
+        this.appThemeState = 0;
+        this.clientID = clientID;
         this.clientVersion = "12.1.0";
         this.clientVersionCode = 1200100;
         this.isKidsEnabled = false;

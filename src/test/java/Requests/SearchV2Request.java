@@ -6,15 +6,23 @@ import Bodies.SearchBody.SearchSingleRequest;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"properties", "singleRequest"})
-public class SearchV2Request {
-    private Object properties;
-    private Object singleRequest;
+public class SearchV2Request extends Request{
 
+    String postFix = "/SearchV2Request";
+
+
+    public SearchV2Request(String query, String language, String scope){
+        this.properties = new RequestProperties();
+        SearchBody searchBody = new SearchBody(query, language, scope);
+        this.singleRequest = new SearchSingleRequest(searchBody);
+        this.requestPostFix = postFix;
+    }
 
     public SearchV2Request(String query){
         this.properties = new RequestProperties();
-        SearchBody searchBody = new SearchBody(query);
+        SearchBody searchBody = new SearchBody(query, "fa", "app");
         this.singleRequest = new SearchSingleRequest(searchBody);
+        this.requestPostFix = postFix;
     }
 
     public Object getProperties() {

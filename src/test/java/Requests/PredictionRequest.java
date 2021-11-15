@@ -6,9 +6,7 @@ import Bodies.RequestProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"properties", "singleRequest"})
-public class PredictionRequest {
-    private Object properties;
-    private Object singleRequest;
+public class PredictionRequest extends Request{
 
     public PredictionRequest(){
         this.properties = new RequestProperties();
@@ -16,9 +14,9 @@ public class PredictionRequest {
         this.singleRequest = new PredictionSingleRequest(predictionBody);
     }
 
-    public PredictionRequest(String text){
+    public PredictionRequest(String query){
         this.properties = new RequestProperties();
-        PredictionBody predictionBody = new PredictionBody(text);
+        PredictionBody predictionBody = new PredictionBody(query);
         this.singleRequest = new PredictionSingleRequest(predictionBody);
     }
 

@@ -10,12 +10,17 @@ public class SearchBody {
     private String scope;
     private String entities;
 
-    public SearchBody(String query){
-        this.canReplaceSpellCheckerQuery = false;
-        this.language = "fa";
-        this.query = query;
-        this.scope = "app";
-        this.entities = "";
+
+    public SearchBody(Boolean canReplaceSpellCheckerQuery, String language, String query, String scope, String entities){
+        this.canReplaceSpellCheckerQuery = canReplaceSpellCheckerQuery;//false
+        this.language = language;//"fa"
+        this.query = query;//"query"
+        this.scope = scope;//"app"
+        this.entities = entities;//""
+    }
+
+    public SearchBody(String query, String language, String scope){
+        this(false, language, query, scope, "");
     }
 
     public Boolean getCanReplaceSpellCheckerQuery() {
