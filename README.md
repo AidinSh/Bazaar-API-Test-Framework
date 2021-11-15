@@ -1,6 +1,6 @@
-# Bazaar-Search-Engine-Test
+# Bazaar API Test FrameWork
 
-This test is for validation of Bazaar new search engine . 
+This Framework is for Bazaar API Testing . 
 
 **For Running the Test** : 
 
