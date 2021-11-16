@@ -15,6 +15,7 @@ public class Test {
     void testFun(){
 
         Request request = new RequestBuilder().getPageV2Request("home-game");
+
         Response response =
                 given().
                         contentType(ContentType.JSON).

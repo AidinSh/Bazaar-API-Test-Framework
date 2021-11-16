@@ -1,4 +1,4 @@
-package Bodies.GetPageBody;
+package Bodies.GetPageV2Body;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

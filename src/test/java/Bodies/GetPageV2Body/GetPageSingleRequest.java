@@ -1,6 +1,5 @@
-package Bodies.GetPageBody;
+package Bodies.GetPageV2Body;
 
-import Requests.Request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetPageSingleRequest {

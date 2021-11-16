@@ -1,7 +1,7 @@
 package Requests;
 
-import Bodies.GetPageBody.GetPageBody;
-import Bodies.GetPageBody.GetPageSingleRequest;
+import Bodies.GetPageV2Body.GetPageBody;
+import Bodies.GetPageV2Body.GetPageSingleRequest;
 import Bodies.RequestProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
