@@ -1,5 +1,7 @@
 package Requests;
 
+import java.util.ArrayList;
+
 public class RequestBuilder {
 
     ///////////////////////////////////////
@@ -34,4 +36,11 @@ public class RequestBuilder {
         return new GetPageV2Request(path);
     }
 
+    //////////////////////////////////////////
+    ////////// GetStoryPage Request //////////
+    //////////////////////////////////////////
+
+    public Request getStoryPageRequest(ArrayList<String> slugs){
+        return new GetStoryPageRequest(slugs);
+    }
 }

@@ -3,10 +3,12 @@ package Requests;
 import Bodies.GetPageV2Body.GetPageBody;
 import Bodies.GetPageV2Body.GetPageSingleRequest;
 import Bodies.RequestProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"properties", "singleRequest"})
 public class GetPageV2Request extends Request {
+
 
     String postFix = "/GetPageV2Request";
 

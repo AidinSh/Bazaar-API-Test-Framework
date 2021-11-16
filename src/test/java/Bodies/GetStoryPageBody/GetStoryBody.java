@@ -2,19 +2,22 @@ package Bodies.GetStoryPageBody;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"storySlugs"})
-public class GetStoryBody {
-    private String[] storySlugs;
+import java.util.ArrayList;
 
-    public GetStoryBody(String[] storySlugs){
+@JsonPropertyOrder({"storySlugs", "referrers"})
+public class GetStoryBody {
+    private ArrayList<String> storySlugs;
+    private String[] referrers;
+
+    public GetStoryBody(ArrayList<String> storySlugs){
         this.storySlugs = storySlugs;
     }
 
-    public String[] getStorySlugs() {
+    public ArrayList<String> getStorySlugs() {
         return storySlugs;
     }
 
-    public void setStorySlugs(String[] storySlugs) {
+    public void setStorySlugs(ArrayList<String> storySlugs) {
         this.storySlugs = storySlugs;
     }
 }

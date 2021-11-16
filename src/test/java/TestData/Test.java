@@ -5,6 +5,9 @@ import Requests.RequestBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class Test {
@@ -14,14 +17,20 @@ public class Test {
     @org.junit.jupiter.api.Test
     void testFun(){
 
-        Request request = new RequestBuilder().getPageV2Request("home-game");
+        ArrayList<String> slugs = new ArrayList<>();
+        slugs.add("callofduty-2021-11-16");
+
+        Request storyPageRequest = new RequestBuilder().getStoryPageRequest(slugs);
+
+        Request getPageRequest = new RequestBuilder().getPageV2Request("app-home");
 
         Response response =
                 given().
+                        log().body().
                         contentType(ContentType.JSON).
-                        body(request).
+                        body(getPageRequest).
                 when().
-                        post(production_url + request.getRequestPostFix()).
+                        post(production_url + getPageRequest.getRequestPostFix()).
                 then().
                         extract().response();
 
