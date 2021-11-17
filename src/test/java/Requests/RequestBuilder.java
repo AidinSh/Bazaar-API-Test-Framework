@@ -43,4 +43,20 @@ public class RequestBuilder {
     public Request getStoryPageRequest(ArrayList<String> slugs){
         return new GetStoryPageRequest(slugs);
     }
+
+    //////////////////////////////////////////
+    ////////// AppDetailsV2 Request //////////
+    //////////////////////////////////////////
+
+    public Request appDetailsV2Request(String packageName) {
+        return new AppDetailsV2Request(packageName);
+    }
+
+    //////////////////////////////////////////////
+    ////////// Verify OTP Token Request //////////
+    //////////////////////////////////////////////
+
+    public Request verifyOtpTokenRequest(String username, String token) {
+        return new VerifyOtpTokenRequest(username, token);
+    }
 }

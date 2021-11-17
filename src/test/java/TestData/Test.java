@@ -21,20 +21,42 @@ public class Test {
         slugs.add("callofduty-2021-11-16");
 
         Request storyPageRequest = new RequestBuilder().getStoryPageRequest(slugs);
+        Request appDetailRequest = new RequestBuilder().appDetailsV2Request("ir.nomogame.ClutchGame");
 
-        Request getPageRequest = new RequestBuilder().getPageV2Request("app-home");
+        String accessToken = getAccessToken("09039269421", "7327");
 
         Response response =
                 given().
-                        log().body().
+                        log().all().
+                        header("Authorization", accessToken).
                         contentType(ContentType.JSON).
-                        body(getPageRequest).
+                        body(appDetailRequest).
                 when().
-                        post(production_url + getPageRequest.getRequestPostFix()).
+                        post(production_url + appDetailRequest.getRequestPostFix()).
                 then().
                         extract().response();
 
         System.out.println(response.asPrettyString());
+
+    }
+
+
+    String getAccessToken(String username, String token){
+
+        Request verifyToken = new RequestBuilder().verifyOtpTokenRequest(username, token);
+
+        Response response =
+                given().
+                        contentType(ContentType.JSON).
+                        body(verifyToken).
+                when().
+                        post(production_url + verifyToken.getRequestPostFix()).
+                then().
+                        extract().response();
+
+
+        String accessToken = response.jsonPath().get("singleReply.verifyOtpTokenReply.accessToken");
+        return "Bearer " + accessToken;
 
     }
 
